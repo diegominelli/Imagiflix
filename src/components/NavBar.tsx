@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import logo from '../assets/imagiflix.png';
@@ -8,6 +8,12 @@ import placeholderUser from '../assets/avatar.jpg';
 import './NavBar.css';
 
 const NavBar = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const handleClick = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   return (
     <nav className="navbar absolute top-0 left-0 grid grid-cols-2 items-center w-full p-8">
       <div className="justify-self-start grid grid-cols-2 gap-4 items-center">
@@ -39,17 +45,29 @@ const NavBar = () => {
             <FontAwesomeIcon icon={faSearch} />
           </button>
         </form>
-        <div className="flex ml-4">
-          <img src={placeholderUser} alt="Foto do usuário" />
-          <button>
+        <div className="relative flex ml-4">
+          <img
+            src={placeholderUser}
+            alt="Foto do usuário"
+            onClick={handleClick}
+          />
+          <button onClick={handleClick}>
             <FontAwesomeIcon className="ml-2" icon={faCaretDown} />
           </button>
-          <ul className="hidden">
+          <ul
+            className={`absolute mt-10 top-0 right-0 w-32 bg-black rounded p-4 transition-all 
+            duration-500 ease-in-out
+            ${!isMenuOpen && 'opacity-0 invisible'}`}
+          >
             <li>
-              <a href="#account">Minha conta</a>
+              <a href="#account" onClick={handleClick}>
+                Minha conta
+              </a>
             </li>
             <li>
-              <a href="#logout">Sair</a>
+              <a href="#logout" onClick={handleClick}>
+                Sair
+              </a>
             </li>
           </ul>
         </div>
