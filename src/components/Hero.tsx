@@ -1,4 +1,6 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlay, faPlus } from '@fortawesome/free-solid-svg-icons';
 import placeholder from '../assets/backdrop.jpg';
 
 const Hero = ({ title = 'Avengers Endgame', score = 10 }) => {
@@ -30,8 +32,18 @@ const Hero = ({ title = 'Avengers Endgame', score = 10 }) => {
             {score}
           </span>
         </p>
-        <button className="text-base">Assistir</button>
-        <button className="text-base">Minha Lista</button>
+        <button
+          className="text-base py-2 px-8 mr-2 mt-8 rounded bg-black bg-opacity-50 
+        transition-all duration-300 ease-in-out hover:bg-white hover:bg-opacity-75 hover:text-black"
+        >
+          <FontAwesomeIcon className="mr-2" icon={faPlay} /> Assistir
+        </button>
+        <button
+          className="text-base py-2 px-8 mr-2 mt-8 rounded bg-black bg-opacity-50 
+        transition-all duration-300 ease-in-out hover:bg-white hover:bg-opacity-75 hover:text-black"
+        >
+          <FontAwesomeIcon className="mr-2" icon={faPlus} /> Minha Lista
+        </button>
       </article>
     </header>
   );
