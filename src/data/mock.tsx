@@ -2,7 +2,13 @@ import cover1 from '../assets/cover1.jpg';
 import cover2 from '../assets/cover2.jpg';
 import cover3 from '../assets/cover3.jpg';
 
-const mockData = [
+export interface Movie {
+  title: string;
+  cover: string;
+  score?: number | string;
+}
+
+const mockData: Movie[] = [
   {
     title: 'Avengers',
     cover: cover1,
