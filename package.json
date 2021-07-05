@@ -49,6 +49,7 @@
     ]
   },
   "devDependencies": {
+    "@types/react-slick": "^0.23.4",
     "autoprefixer": "^9",
     "postcss": "^7",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat"
